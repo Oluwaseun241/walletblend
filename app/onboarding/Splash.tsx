@@ -9,7 +9,7 @@ export default function Splash() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate(routes.dashboard);
+      navigate(routes.onboarding);
     }, 3000);
     return () => clearTimeout(timer);
   });

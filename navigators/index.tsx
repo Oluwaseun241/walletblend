@@ -12,6 +12,7 @@ import Transactions from "@/app/screen/Transactions";
 import Wallet from "@/app/screen/Wallet";
 import Statistics from "@/app/screen/Statistics";
 import Settings from "@/app/screen/Settings";
+import Onboarding from "@/app/onboarding/Onboarding";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +24,7 @@ export default function Routes() {
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name={routes.splash} component={Splash} />
+      <Stack.Screen name={routes.onboarding} component={Onboarding} />
       <Stack.Screen name={routes.dashboard} component={TabNavigators} />
     </Stack.Navigator>
   );

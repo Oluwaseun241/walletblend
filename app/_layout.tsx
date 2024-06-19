@@ -11,7 +11,7 @@ export default function RootLayout() {
   // assets preloading
   const preloadAssets = async () => {
     try {
-      await loadFonts;
+      loadFonts;
     } finally {
       setReady(true);
       SplashScreen.hideAsync();
