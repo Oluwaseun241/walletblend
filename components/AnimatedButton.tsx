@@ -1,10 +1,18 @@
 import Colors from "@/constants/Colors";
 import { AntDesign } from "@expo/vector-icons";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Animated, StyleSheet, TouchableOpacity, View } from "react-native";
 import Svg, { Circle, G } from "react-native-svg";
 
-export default function AnimatedButton() {
+interface AnimatedButtonProps {
+  percentage: number;
+  scrollTo: () => void;
+}
+
+export default function AnimatedButton({
+  percentage,
+  scrollTo,
+}: AnimatedButtonProps) {
   const size = 95;
   const strokeWidth = 4;
   const center = size / 2;
@@ -12,15 +20,32 @@ export default function AnimatedButton() {
   const circumference = 2 * Math.PI * radius;
 
   const progressAnimation = useRef(new Animated.Value(0)).current;
-  const progressRef = useRef(null);
+  const progressRef = useRef<any>(null);
 
-  const animation = (toValue) => {
+  const animation = (toValue: number) => {
     return Animated.timing(progressAnimation, {
       toValue,
       duration: 250,
       useNativeDriver: true,
     }).start();
   };
+
+  useEffect(() => {
+    animation(percentage);
+  }, [percentage]);
+
+  useEffect(() => {
+    progressAnimation.addListener((value) => {
+      const strokeDashoffset =
+        circumference - (circumference * value.value) / 100;
+
+      if (progressRef.current) {
+        progressRef.current.setNativeProps({
+          strokeDashoffset,
+        });
+      }
+    });
+  }, [percentage]);
 
   return (
     <View style={styles.container}>
@@ -41,11 +66,14 @@ export default function AnimatedButton() {
             r={radius}
             strokeWidth={strokeWidth}
             strokeDasharray={circumference}
-            strokeDashoffset={circumference - (circumference * 25) / 100}
           />
         </G>
       </Svg>
-      <TouchableOpacity style={styles.button} activeOpacity={0.6}>
+      <TouchableOpacity
+        onPress={scrollTo}
+        style={styles.button}
+        activeOpacity={0.6}
+      >
         <AntDesign name="arrowright" size={32} color={Colors.dark.tint} />
       </TouchableOpacity>
     </View>

@@ -1,7 +1,10 @@
 import Colors from "@/constants/Colors";
+import UseNavigate from "@/lib/hooks/use-navigation";
+import routes from "@/lib/routes";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Header() {
+  const { navigate } = UseNavigate();
   return (
     <View style={styles.header}>
       <View style={styles.leftContainer}>
@@ -11,7 +14,10 @@ export default function Header() {
         />
         <Text>WalletBlend</Text>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => navigate(routes.dashboard)}
+        style={styles.button}
+      >
         <Text style={{ color: Colors.light.primary }}>Skip</Text>
       </TouchableOpacity>
     </View>
