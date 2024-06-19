@@ -9,7 +9,7 @@ export default function AnimatedButton({
   percentage,
   scrollTo,
 }: AnimatedButtonProps) {
-  const size = 95;
+  const size = 80;
   const strokeWidth = 4;
   const center = size / 2;
   const radius = size / 2 - strokeWidth / 2;
@@ -45,7 +45,7 @@ export default function AnimatedButton({
 
   return (
     <View style={styles.container}>
-      <Svg width={size} height={size}>
+      <Svg width={size + 245} height={size + 125}>
         <G rotation="-90" origin={center}>
           <Circle
             stroke="#FFFFFF"
@@ -70,7 +70,7 @@ export default function AnimatedButton({
         style={styles.button}
         activeOpacity={0.6}
       >
-        <AntDesign name="arrowright" size={32} color={Colors.dark.tint} />
+        <AntDesign name="arrowright" size={24} color={Colors.dark.tint} />
       </TouchableOpacity>
     </View>
   );
@@ -79,15 +79,13 @@ export default function AnimatedButton({
 const styles = StyleSheet.create({
   container: {
     flex: 0.2,
-    marginTop: 35,
     justifyContent: "center",
     alignItems: "center",
   },
-  test: {
-    backgroundColor: "#ffffff",
-  },
   button: {
     position: "absolute",
+    bottom: 75,
+    left: 25,
     backgroundColor: Colors.light.primary,
     borderRadius: 100,
     padding: 20,

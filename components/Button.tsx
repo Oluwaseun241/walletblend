@@ -4,10 +4,16 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 export default function LoginSignup() {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => console.log("Login")}
+      >
         <Text style={styles.buttonText1}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button2}>
+      <TouchableOpacity
+        style={styles.button2}
+        onPress={() => console.log("SignUp")}
+      >
         <Text style={styles.buttonText2}>SignUp</Text>
       </TouchableOpacity>
     </View>
@@ -16,10 +22,9 @@ export default function LoginSignup() {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    flex: 0.1,
+    flex: 0.2,
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: 35,
   },
   button: {
     backgroundColor: Colors.dark.tint,

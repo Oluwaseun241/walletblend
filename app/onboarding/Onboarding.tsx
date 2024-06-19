@@ -18,7 +18,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { OnboardingItemProps, ItemProps } from "@/@types/types";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
-import LoginSignup from "@/components/LoginSignupButton";
+import LoginSignup from "@/components/Button";
 
 const OnboardingItem: React.FC<OnboardingItemProps> = ({ item }) => {
   const { width } = useWindowDimensions();
@@ -97,11 +97,11 @@ export default function Onboarding() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.8,
+    flex: 1,
     paddingTop: Platform.OS == "android" ? StatusBar.currentHeight - 10 : 0,
   },
   image: {
-    flex: 1,
+    flex: 0.8,
     justifyContent: "center",
   },
   title: {
