@@ -19,14 +19,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": ["node_modules/@expo-google-fonts/inter/Inter_700Bold.ttf"]
-        }
-      ],
-      "expo-router"
-    ]
+    "plugins": ["expo-font", "expo-router"]
   }
 }

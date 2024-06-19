@@ -8,3 +8,8 @@ export type ItemProps = {
 export interface OnboardingItemProps {
   item: ItemProps;
 }
+
+export interface AnimatedButtonProps {
+  percentage: number;
+  scrollTo: () => void;
+}

@@ -18,6 +18,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { OnboardingItemProps, ItemProps } from "@/@types/types";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
+import LoginSignup from "@/components/LoginSignupButton";
 
 const OnboardingItem: React.FC<OnboardingItemProps> = ({ item }) => {
   const { width } = useWindowDimensions();
@@ -56,7 +57,6 @@ export default function Onboarding() {
     if (currentIndex < slides.length - 1) {
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      console.log("last item");
       navigate(routes.dashboard);
     }
   };
@@ -83,10 +83,14 @@ export default function Onboarding() {
         viewabilityConfig={viewConfig}
         ref={slidesRef}
       />
-      <AnimatedButton
-        scrollTo={scrollTo}
-        percentage={(currentIndex + 1) * (100 / slides.length)}
-      />
+      {currentIndex === 2 ? (
+        <LoginSignup />
+      ) : (
+        <AnimatedButton
+          scrollTo={scrollTo}
+          percentage={(currentIndex + 1) * (100 / slides.length)}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -101,17 +105,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontFamily: "Roboto",
-    fontWeight: "800",
-    fontSize: 28,
+    fontFamily: "KaiseiOpti-Regular",
+    fontSize: 30,
     marginBottom: 10,
     textAlign: "left",
     flexWrap: "wrap",
     width: "80%",
   },
   description: {
-    fontWeight: "400",
+    fontFamily: "Lato-Regular",
     fontSize: 16,
+    color: "#979797",
     textAlign: "left",
     flexWrap: "wrap",
     width: "80%",

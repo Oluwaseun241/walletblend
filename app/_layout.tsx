@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, StatusBar, Platform } from "react-native";
+import { StatusBar, Platform } from "react-native";
 import { useEffect, useState } from "react";
 import { Slot, SplashScreen } from "expo-router";
 import { loadFonts } from "@/lib/fonts";
@@ -11,7 +11,9 @@ export default function RootLayout() {
   // assets preloading
   const preloadAssets = async () => {
     try {
-      loadFonts;
+      await loadFonts();
+    } catch (error) {
+      console.warn("Error loading assests", error);
     } finally {
       setReady(true);
       SplashScreen.hideAsync();

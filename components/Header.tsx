@@ -12,13 +12,23 @@ export default function Header() {
           source={require("@/assets/logo2.png")}
           style={{ width: 40, height: 40 }}
         />
-        <Text>WalletBlend</Text>
+        <Text style={{ fontFamily: "Marcellus-Regular", fontSize: 20 }}>
+          WalletBlend
+        </Text>
       </View>
       <TouchableOpacity
         onPress={() => navigate(routes.dashboard)}
         style={styles.button}
       >
-        <Text style={{ color: Colors.light.primary }}>Skip</Text>
+        <Text
+          style={{
+            color: Colors.light.primary,
+            fontFamily: "Lato-Regular",
+            fontSize: 14,
+          }}
+        >
+          Skip
+        </Text>
       </TouchableOpacity>
     </View>
   );

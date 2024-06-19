@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.dark.text,
+    fontFamily: "Marcellus-Regular",
+    fontSize: 20,
     textAlign: "center",
     marginBottom: 20,
   },
