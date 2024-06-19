@@ -1,7 +1,7 @@
-import { loadAsync } from "expo-font";
+import { loadAsync, useFonts } from "expo-font";
 
 export const loadFonts = () =>
-  loadAsync({
+  useFonts({
     "KaiseiOpti-Bold": require("../assets/fonts/KaiseiOpti-Bold.ttf"),
     "KaiseiOpti-Medium": require("../assets/fonts/KaiseiOpti-Medium.ttf"),
     "KaiseiOpti-Regular": require("../assets/fonts/KaiseiOpti-Regular.ttf"),

@@ -1,4 +1,6 @@
+import Colors from "@/constants/Colors";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+
 export default function Header() {
   return (
     <View style={styles.header}>
@@ -9,8 +11,8 @@ export default function Header() {
         />
         <Text>WalletBlend</Text>
       </View>
-      <TouchableOpacity>
-        <Text>Skip</Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={{ color: Colors.light.primary }}>Skip</Text>
       </TouchableOpacity>
     </View>
   );
@@ -21,10 +23,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   leftContainer: {
     flexDirection: "row",
     alignItems: "center",
+    gap: 5,
+  },
+  button: {
+    backgroundColor: "#E8EDFD",
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 20,
   },
 });

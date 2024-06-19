@@ -1,3 +1,4 @@
+import AnimatedButton from "@/components/AnimatedButton";
 import Header from "@/components/Header";
 import slides from "@/constants/slides";
 import React from "react";
@@ -12,6 +13,7 @@ import {
   StatusBar,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import RootLayout from "../_layout";
 
 interface ItemProps {
   title: any;
@@ -49,22 +51,24 @@ export default function Onboarding() {
         horizontal
         showsHorizontalScrollIndicator={false}
         pagingEnabled
+        bounces={false}
       />
+      <AnimatedButton />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.8,
     paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
   },
   image: {
-    flex: 0.7,
+    flex: 1,
     justifyContent: "center",
   },
   title: {
-    //fontFamily: "Inter",
+    //fontFamily: "KaiseiOpti-Bold",
     fontWeight: "800",
     fontSize: 28,
     marginBottom: 10,
