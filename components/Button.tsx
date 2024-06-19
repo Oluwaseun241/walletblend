@@ -1,12 +1,15 @@
 import Colors from "@/constants/Colors";
+import UseNavigate from "@/lib/hooks/use-navigation";
+import routes from "@/lib/routes";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function LoginSignup() {
+  const { navigate } = UseNavigate();
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => console.log("Login")}
+        onPress={() => navigate(routes.login)}
       >
         <Text style={styles.buttonText1}>Login</Text>
       </TouchableOpacity>
