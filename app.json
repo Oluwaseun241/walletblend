@@ -7,11 +7,6 @@
     "icon": "./assets/icon.png",
     "scheme": "wallet-blend",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true
     },

@@ -1,12 +1,32 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet } from "react-native";
-import routes from "../lib/routes";
+
+import routes from "@/lib/routes";
+import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+import Colors from "@/constants/Colors";
+// Screen
+import Splash from "@/app/onboarding/Splash";
+import Home from "@/app/screen/Home";
+import Transactions from "@/app/screen/Transactions";
+import Wallet from "@/app/screen/Wallet";
+import Statistics from "@/app/screen/Statistics";
+import Settings from "@/app/screen/Settings";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function Routes() {}
+export default function Routes() {
+  return (
+    <Stack.Navigator
+      initialRouteName={routes.splash}
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name={routes.splash} component={Splash} />
+      <Stack.Screen name={routes.dashboard} component={TabNavigators} />
+    </Stack.Navigator>
+  );
+}
 
 const TabNavigators = () => {
   return (
@@ -14,27 +34,78 @@ const TabNavigators = () => {
       initialRouteName={routes.home}
       screenOptions={{
         headerShown: false,
-        tabBarLabelStyle: styles.tabBarLabel,
-        tabBarStyle: styles.tabBarStyle,
       }}
     >
-      <Tab.Screen name={routes.home} component={} />
+      <Tab.Screen
+        name={routes.home}
+        component={Home}
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: ({ focused }) => (
+            <Entypo
+              name="home"
+              size={26}
+              color={focused ? Colors.light.tabIconSelected : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={routes.transactions}
+        component={Transactions}
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="time"
+              size={26}
+              color={focused ? Colors.light.tabIconSelected : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={routes.wallet}
+        component={Wallet}
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="card"
+              size={26}
+              color={focused ? Colors.light.tabIconSelected : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={routes.statistics}
+        component={Statistics}
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="pie-chart"
+              size={26}
+              color={focused ? Colors.light.tabIconSelected : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={routes.settings}
+        component={Settings}
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="settings"
+              size={26}
+              color={focused ? Colors.light.tabIconSelected : "grey"}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBarLabel: {
-    //fontFamily: ,
-    fontSize: 14,
-    marginVertical: 3,
-    color: "#b4b4b4",
-  },
-  tabBarStyle: {
-    paddingVertical: 4,
-  },
-  tabBarLabelFocused: {
-    // Custom styles for focused state
-    color: "#8A50F0",
-  },
-});

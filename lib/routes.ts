@@ -1,5 +1,10 @@
 export default {
   splash: "SPLASH",
-  home: "HOME",
   login: "LOGIN",
+  dashboard: "DASHBOARD",
+  home: "HOME",
+  transactions: "TRANSACTIONS",
+  wallet: "WALLET",
+  statistics: "STATISTICS",
+  settings: "SETTINGS",
 };
