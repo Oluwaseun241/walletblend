@@ -14,48 +14,32 @@ import Colors from "@/constants/Colors";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
 
-export default function Login() {
+export default function Verify() {
   const { navigate } = UseNavigate();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <AntDesign name="arrowleft" size={24} color={Colors.light.primary} />
-        <Text style={{ fontFamily: "Lato-Bold" }}>Login</Text>
+        <AntDesign
+          name="arrowleft"
+          size={24}
+          color={Colors.light.primary}
+          onPress={() => navigate(routes.signup)}
+        />
+        <Text style={{ fontFamily: "Lato-Bold" }}>Verify Account</Text>
+        <Text></Text>
         <Text></Text>
       </View>
-      <View style={{ padding: 14 }}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter your Email"
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={[styles.input, { marginTop: 20 }]}
-          placeholder="Enter your password"
-        />
-        <Text
-          style={styles.text}
-          onPress={() => console.log("forgot password")}
-        >
-          Forgot password?
-        </Text>
-      </View>
+      <Text style={{ fontFamily: "Nunito-Sans", textAlign: "center" }}>
+        Input the 5 digit code sent to your Email
+      </Text>
+      <View style={{ padding: 14 }}></View>
       <View style={styles.footer}>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigate(routes.dashboard)}
         >
-          <Text style={styles.textButton}>Login</Text>
+          <Text style={styles.textButton}>Next</Text>
         </TouchableOpacity>
-        <Text style={{ fontFamily: "Nunito-Sans", marginTop: 5 }}>
-          Don't have an account?{" "}
-          <Text
-            onPress={() => navigate(routes.signup)}
-            style={{ color: Colors.light.primary }}
-          >
-            Sign Up
-          </Text>
-        </Text>
       </View>
     </SafeAreaView>
   );
@@ -101,6 +85,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    top: 420,
+    top: 580,
   },
 });
