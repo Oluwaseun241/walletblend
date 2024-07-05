@@ -1,7 +1,13 @@
 import Colors from "@/constants/Colors";
 import { AntDesign } from "@expo/vector-icons";
 import { useEffect, useRef } from "react";
-import { Animated, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Svg, { Circle, G } from "react-native-svg";
 import { AnimatedButtonProps } from "@/@types/types";
 
@@ -84,8 +90,8 @@ const styles = StyleSheet.create({
   },
   button: {
     position: "absolute",
-    bottom: 75,
-    left: 25,
+    bottom: Platform.OS === "android" ? "83.5%" : "81%",
+    left: Platform.OS === "android" ? "7%" : "12.5%",
     backgroundColor: Colors.light.primary,
     borderRadius: 100,
     padding: 20,
