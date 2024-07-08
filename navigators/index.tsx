@@ -16,6 +16,8 @@ import Onboarding from "@/app/onboarding/Onboarding";
 import Login from "@/app/onboarding/Login";
 import Signup from "@/app/onboarding/Signup";
 import Verify from "@/app/onboarding/Verify";
+import SetPassword from "@/app/onboarding/SetPassword";
+import Welcome from "@/app/onboarding/Welcome";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -31,6 +33,8 @@ export default function Routes() {
       <Stack.Screen name={routes.login} component={Login} />
       <Stack.Screen name={routes.signup} component={Signup} />
       <Stack.Screen name={routes.verify} component={Verify} />
+      <Stack.Screen name={routes.setpassword} component={SetPassword} />
+      <Stack.Screen name={routes.welcome} component={Welcome} />
       <Stack.Screen name={routes.dashboard} component={TabNavigators} />
     </Stack.Navigator>
   );

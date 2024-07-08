@@ -4,6 +4,8 @@ export default {
   login: "LOGIN",
   signup: "SIGNUP",
   verify: "VERIFY",
+  setpassword: "SETPASSWORD",
+  welcome: "WELCOME",
   dashboard: "DASHBOARD",
   home: "HOME",
   transactions: "TRANSACTIONS",

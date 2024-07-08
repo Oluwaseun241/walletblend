@@ -20,8 +20,12 @@ export default function Login() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <AntDesign name="arrowleft" size={24} color={Colors.light.primary} />
-        <Text style={{ fontFamily: "Lato-Bold" }}>Login</Text>
-        <Text></Text>
+        <Text
+          style={{ fontFamily: "Lato-Bold", fontSize: 18, fontWeight: "600" }}
+        >
+          Login
+        </Text>
+        <View style={{ flex: 0.1 }} />
       </View>
       <View style={{ padding: 14 }}>
         <TextInput
@@ -40,6 +44,7 @@ export default function Login() {
           Forgot password?
         </Text>
       </View>
+      <View style={{ flex: 1 }} />
       <View style={styles.footer}>
         <TouchableOpacity
           style={styles.button}
@@ -101,6 +106,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    top: 420,
   },
 });

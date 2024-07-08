@@ -4,50 +4,31 @@ import {
   StyleSheet,
   Platform,
   StatusBar,
-  TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { AntDesign } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
 
-export default function Signup() {
+export default function Welcome() {
   const { navigate } = UseNavigate();
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <AntDesign
-          name="arrowleft"
-          size={24}
-          color={Colors.light.primary}
-          onPress={() => navigate(routes.onboarding)}
+      <View style={{ alignItems: "center" }}>
+        <Image
+          source={require("@/assets/images/welcome.png")}
+          resizeMode="center"
         />
-        <Text
-          style={{
-            fontFamily: "Lato-Bold",
-            fontSize: 18,
-            fontWeight: "600",
-          }}
-        >
-          Enter Your Email
-        </Text>
-        <View style={{ flex: 0.2 }} />
-      </View>
-      <View style={{ padding: 14 }}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email Address"
-          keyboardType="email-address"
-        />
+        <Text style={styles.text}>Welcome to WalletBlend</Text>
       </View>
       <View style={{ flex: 1 }} />
       <View style={styles.footer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate(routes.verify)}
+          onPress={() => navigate(routes.dashboard)}
         >
           <Text style={styles.textButton}>Next</Text>
         </TouchableOpacity>
@@ -61,20 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingLeft: 20,
-  },
-  input: {
-    fontFamily: "Nunito-Sans",
-    color: Colors.light.text,
-    height: 55,
-    padding: 20,
-    borderRadius: 20,
-    backgroundColor: "#EDEFF3",
-  },
+
   button: {
     backgroundColor: Colors.light.primary,
     borderRadius: 20,
@@ -82,9 +50,9 @@ const styles = StyleSheet.create({
     width: 300,
   },
   text: {
-    color: Colors.light.primary,
-    padding: 7,
-    fontFamily: "Nunito-Sans",
+    fontFamily: "KaiseiOpti-Regular",
+    fontWeight: "400",
+    fontSize: 20,
   },
   textButton: {
     fontFamily: "Nunito-Sans",

@@ -4,19 +4,18 @@ import {
   StyleSheet,
   Platform,
   StatusBar,
+  TextInput,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
-import PinInput from "@/components/OtpInput";
 
-export default function Verify() {
+export default function SetPassword() {
   const { navigate } = UseNavigate();
-  const [pinValue, setPinValue] = useState<string>("");
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -24,38 +23,37 @@ export default function Verify() {
           name="arrowleft"
           size={24}
           color={Colors.light.primary}
-          onPress={() => navigate(routes.signup)}
+          onPress={() => navigate(routes.onboarding)}
         />
         <Text
           style={{
             fontFamily: "Lato-Bold",
             fontSize: 18,
             fontWeight: "600",
-            padding: 10,
           }}
         >
-          Verify Account
+          Set Your Password
         </Text>
         <View style={{ flex: 0.2 }} />
       </View>
-      <Text
-        style={{
-          fontFamily: "Nunito-Sans",
-          fontSize: 16,
-          textAlign: "center",
-          padding: 20,
-        }}
-      >
-        Input the 5 digit code sent to your Email
-      </Text>
-      <View>
-        <PinInput pinValue={pinValue} setPinValue={setPinValue} />
+      <View style={{ padding: 14 }}>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Password"
+          keyboardType="visible-password"
+        />
+        <Text />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          keyboardType="visible-password"
+        />
       </View>
       <View style={{ flex: 1 }} />
       <View style={styles.footer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate(routes.setpassword)}
+          onPress={() => navigate(routes.welcome)}
         >
           <Text style={styles.textButton}>Next</Text>
         </TouchableOpacity>
@@ -96,8 +94,6 @@ const styles = StyleSheet.create({
   },
   textButton: {
     fontFamily: "Nunito-Sans",
-    fontSize: 16,
-    fontWeight: "600",
     textAlign: "center",
     padding: 10,
     color: Colors.dark.text,
