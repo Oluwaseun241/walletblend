@@ -1,5 +1,5 @@
-import AnimatedButton from "@/components/AnimatedButton";
-import Header from "@/components/Header";
+import AnimatedButton from "@/components/onboarding/AnimatedButton";
+import Header from "@/components/onboarding/Header";
 import slides from "@/constants/slides";
 import React, { useRef, useState } from "react";
 import {
@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { OnboardingItemProps, ItemProps } from "@/@types/types";
-import LoginSignup from "@/components/Button";
+import LoginSignup from "@/components/onboarding/Button";
 
 const OnboardingItem: React.FC<OnboardingItemProps> = ({ item }) => {
   const { width } = useWindowDimensions();

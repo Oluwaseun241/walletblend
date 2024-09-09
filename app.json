@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "walletblend",
-    "slug": "walletblend",
+    "slug": "wallet_blend",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo2.png",
     "scheme": "wallet-blend",
     "userInterfaceStyle": "light",
     "ios": {
@@ -14,11 +14,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.viper7.wallet_blend"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["expo-font", "expo-router"]
+    "extra": {
+      "eas": {
+        "projectId": "75d8f672-c150-416c-be29-9a721dcd1525"
+      },
+      "plugins": ["expo-font", "expo-router"]
+    }
   }
 }

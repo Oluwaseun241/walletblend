@@ -1,57 +1,38 @@
-import Colors from "@/constants/Colors";
-import UseNavigate from "@/lib/hooks/use-navigation";
-import routes from "@/lib/routes";
-import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function Header() {
-  const { navigate } = UseNavigate();
   return (
-    <View style={styles.header}>
-      <View style={styles.leftContainer}>
-        <Image
-          source={require("@/assets/logo2.png")}
-          style={{ width: 40, height: 40 }}
-        />
-        <Text style={{ fontFamily: "Marcellus-Regular", fontSize: 20 }}>
-          WalletBlend
-        </Text>
+    <View style={styles.headerContainer}>
+      <Image
+        source={require("@/assets/images/header.png")}
+        style={styles.profileImage}
+      />
+      <Text style={styles.greetingText}>Hi, Dave Jones</Text>
+      <View style={{ flexDirection: "row", marginLeft: 140, gap: 20 }}>
+        <Ionicons name="scan-sharp" size={24} color="black" />
+        <Ionicons name="notifications-sharp" size={24} color="black" />
       </View>
-      <TouchableOpacity
-        onPress={() => navigate(routes.dashboard)}
-        style={styles.button}
-      >
-        <Text
-          style={{
-            color: Colors.light.primary,
-            fontFamily: "Lato-Regular",
-            fontSize: 14,
-          }}
-        >
-          Skip
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
+  headerContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
+    padding: 18,
   },
-  leftContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
-  },
-  button: {
-    backgroundColor: "#E8EDFD",
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 16,
-    paddingRight: 16,
+  profileImage: {
+    width: 40, // Adjust size as needed
+    height: 40,
     borderRadius: 20,
+  },
+  greetingText: {
+    fontSize: 18,
+    fontWeight: "500",
+    color: "#3E3E3E", // Dark grey color
+    marginLeft: 10,
   },
 });

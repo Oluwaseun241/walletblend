@@ -12,7 +12,7 @@ import { AntDesign } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import UseNavigate from "@/lib/hooks/use-navigation";
 import routes from "@/lib/routes";
-import PinInput from "@/components/OtpInput";
+import PinInput from "@/components/onboarding/OtpInput";
 
 export default function Verify() {
   const { navigate } = UseNavigate();
